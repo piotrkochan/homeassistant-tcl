@@ -1,0 +1,5 @@
+{
+  "name": "TCL Android TV Display",
+  "content_in_root": true,
+  "homeassistant": "2026.8.0"
+}
