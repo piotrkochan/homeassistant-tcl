@@ -1,0 +1,16 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Add TCL display controls",
+        "description": "Choose an existing Android TV integration entity with working ADB commands.",
+        "data": {
+          "source_entity": "Android TV ADB entity"
+        }
+      }
+    },
+    "abort": {
+      "already_configured": "This Android TV entity is already configured."
+    }
+  }
+}
