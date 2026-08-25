@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from homeassistant.const import STATE_OFF, STATE_UNAVAILABLE, STATE_UNKNOWN
+from homeassistant.const import STATE_UNAVAILABLE, STATE_UNKNOWN
 from homeassistant.core import HomeAssistant
 from homeassistant.exceptions import HomeAssistantError
 
@@ -14,7 +14,7 @@ class TclAndroidTvApi:
 
     async def async_read(self) -> dict[str, int]:
         source = self.hass.states.get(self.source_entity)
-        if source is None or source.state in {STATE_OFF, STATE_UNAVAILABLE, STATE_UNKNOWN}:
+        if source is None or source.state in {STATE_UNAVAILABLE, STATE_UNKNOWN}:
             raise HomeAssistantError("Android TV ADB entity is not available")
         return await self.async_command(batch_command())
 
@@ -34,4 +34,3 @@ class TclAndroidTvApi:
         if "backlight" not in values:
             raise HomeAssistantError("TCL Binder response was not received")
         return values
-
